@@ -1,6 +1,6 @@
-# OpenFaaS/ECR GitHub action
+# OpenFaaS GitHub action
 
-GitHub action for building OpenFaaS functions and deploying images to ECR.
+GitHub action for building OpenFaaS functions.
 
 ## Inputs
 
@@ -27,7 +27,7 @@ URL of the repository with templates
 ## Example usage
 
 ```yaml
-uses: serhiisavruk/actionn-openfaas-ecr@v*.*.*
+uses: serhiisavruk/actionn-openfaas@v1.0.0
 env:
   OPENFAAS_URL: ${{ secrets.OPENFAAS_GATEWAY }}
 with:
