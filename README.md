@@ -1,6 +1,6 @@
-# OpenFaaS/ECR GitHub action
+# OpenFaaS GitHub action
 
-GitHub action for building OpenFaaS functions and deploying images to ECR.
+GitHub action for building OpenFaaS functions
 
 ## Inputs
 
@@ -24,10 +24,24 @@ GitHub action for building OpenFaaS functions and deploying images to ECR.
 
 URL of the repository with templates
 
+## Outputs
+
+### `registry`
+
+Function image registry
+
+### `repository`
+
+Function image repository
+
+### `tag`
+
+Function image tag
+
 ## Example usage
 
 ```yaml
-uses: serhiisavruk/actionn-openfaas-ecr@v*.*.*
+uses: tunein/action-openfaas@v*.*.*
 env:
   OPENFAAS_URL: ${{ secrets.OPENFAAS_GATEWAY }}
 with:
@@ -36,4 +50,11 @@ with:
   openfaas-username: ${{ secrets.OPENFAAS_USERNAME }}
   openfaas-password: ${{ secrets.OPENFAAS_PASSWORD }}
   template-url: 'https://github.com/serhiisavruk/openfaas-template'
+
+  ...
+
+  env:
+    ECR_REGISTRY: ${{ steps.build.outputs.registry }}
+    ECR_REPOSITORY: ${{ steps.build.outputs.repository }}
+    IMAGE_TAG: ${{ steps.build.outputs.tag }}
 ```
